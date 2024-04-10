@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PokemonGallary from "./Componets/PokemonGallary";
+import NavbarComponet from "./Componets/Navbar";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import About from "./Componets/About";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavbarComponet />
+      <Routes>
+        <Route
+          path="/"
+          element={<PokemonGallary/>}
+        />
+        <Route
+          exact
+          path="/about"
+          element={<About/>}
+        />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
